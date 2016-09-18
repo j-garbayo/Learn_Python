@@ -12,6 +12,10 @@
     <OutputPath>.</OutputPath>
     <Name>Learn_Python</Name>
     <RootNamespace>Learn_Python</RootNamespace>
+    <InterpreterId>
+    </InterpreterId>
+    <InterpreterVersion>
+    </InterpreterVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
