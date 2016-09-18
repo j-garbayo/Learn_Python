@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>0d1adddb-86bf-483c-96da-c04b2397b309</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>040_Tuples.py</StartupFile>
+    <StartupFile>091_Asessment.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -27,6 +27,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="040_Tuples.py" />
+    <Compile Include="050_Files.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="060_Sets_Booleans.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="061_Asessment.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="090_Python_Statements.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="091_Asessment.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

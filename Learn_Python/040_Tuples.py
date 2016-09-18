@@ -25,7 +25,7 @@ print(len(t))
 t = ('one',2)
 
 # Show
-print(t)
+print("t = " + str(t))
 
 # Use indexing just like we did in lists
 print(t[0])
@@ -34,11 +34,21 @@ print(t[0])
 print "t[-1]"
 print(t[-1])
 
+#Test combination of tuples and lists
+test_tuple = (1,2,[1,2])
+print("test_tuple = " + str(test_tuple))
+print "Now we execute 'test_tuple[2].append(4)'"
+test_tuple[2].append(4)
+print("test_tuple = " + str(test_tuple))
+test_tuple[2][2] = 5
+print("test_tuple = " + str(test_tuple))
+
 print("")
 print("BASIC TUPLE METHODS")
 
 # Use .index to enter a value and return the index
-print("t.index('one') = " + str(t.index('one'))
+print("t.index('one') = " + str(t.index('one')))
 
 # Use .count to count the number of times a value appears
-print("t.count('one') = " + str(t.count('one'))
+print("t.count('one') = " + str(t.count('one')))
+
