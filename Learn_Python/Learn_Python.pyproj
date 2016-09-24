@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>0d1adddb-86bf-483c-96da-c04b2397b309</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>091_Asessment.py</StartupFile>
+    <StartupFile>150_Milestone_Project_1.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -26,6 +26,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="001_Chained_Assignments.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="040_Tuples.py" />
     <Compile Include="050_Files.py">
       <SubType>Code</SubType>
@@ -40,6 +43,24 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="091_Asessment.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="100_Methods.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="110_Funcitons.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="120_Lambda_expressions.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="130_Nested_Statements_Scope.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="140_Functions_Methods_Assignment.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="150_Milestone_Project_1.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
