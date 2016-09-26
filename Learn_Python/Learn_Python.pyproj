@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>0d1adddb-86bf-483c-96da-c04b2397b309</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>150_Milestone_Project_1.py</StartupFile>
+    <StartupFile>160_OOP.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -26,6 +26,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="000_test.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="001_Chained_Assignments.py">
       <SubType>Code</SubType>
     </Compile>
@@ -61,6 +64,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="150_Milestone_Project_1.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="160_OOP.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

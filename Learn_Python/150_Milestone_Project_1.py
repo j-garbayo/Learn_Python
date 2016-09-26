@@ -2,7 +2,7 @@ import random
 from IPython.core.display import clear_output
 
 #List to define the values of the positions in the board
-board = [" " for x in range(0,9)]
+board = [" "]  * 9
 players = [["name1","marker1"],["name2","marker2"]]
 
 #Current player must be equal to either 0 or 1.
@@ -68,8 +68,19 @@ def win_check(board,mark):
         win = True
 
     return win
-
+    
+'''
     #ALTERNATIVE use or to concatenate all possibe win cases (see jupyter notebook).
+    This is more efficiently from a computational point of view but less syntax clear maybe...
+    return ((board[7] == mark and board[8] == mark and board[9] == mark) or # across the top
+    (board[4] == mark and board[5] == mark and board[6] == mark) or # across the middle
+    (board[1] == mark and board[2] == mark and board[3] == mark) or # across the bottom
+    (board[7] == mark and board[4] == mark and board[1] == mark) or # down the middle
+    (board[8] == mark and board[5] == mark and board[2] == mark) or # down the middle
+    (board[9] == mark and board[6] == mark and board[3] == mark) or # down the right side
+    (board[7] == mark and board[5] == mark and board[3] == mark) or # diagonal
+    (board[9] == mark and board[5] == mark and board[1] == mark)) # diagonal
+'''
 
 def choose_first():
     first = random.randint(0,1)
@@ -77,7 +88,6 @@ def choose_first():
     return first
 
 def space_check(board, position):
-   
     return board[position] == " "
 
 
@@ -87,6 +97,12 @@ def full_board_check(board):
         full = True
     return full
 
+    #Alternative
+    #for i in range(1,10):
+    #    if space_check(board, i):
+    #        return False
+    #return True
+
 def next_player():
     global current_player
     current_player += 1
@@ -94,28 +110,24 @@ def next_player():
         current_player = 0
 
 
-#Redefinir como en el jupyter notebook.
 def player_choice(board):
-    move = raw_input(players[current_player][0] + " enter your next move: ")
-    move = int(move)    #Esto hace que de error si el input es ""
-    while move not in range(1,10):
-        move = raw_input("Invalid input. Enter integers between 1 and 9: ")
-
-    Free_space = space_check(board, move-1)
-    while Free_space == False:
-        move = raw_input("Invalid input. Position occupied. Chose another position: ")
-        move = int(move)    #Esto hace que de error si el input es ""
-        Free_space = space_check(board, move-1)
-
-    board[move-1] = players[current_player][1]
+    position = " "
+    #Using strings because of raw input
+    #The order in the while statement below is important, because the first check filters already integer input.
+    #If the second check of the "or" logic was put in first place, int() would cause the function to crash, because
+    #a " " or "" character could be entered as argument for int. Check the commented line below.
+    while position not in "1 2 3 4 5 6 7 8 9".split() or not space_check(board, int(position)-1):
+    #while not space_check(board, int(position)-1) or position not in "1 2 3 4 5 6 7 8 9".split():
+        position = raw_input(players[current_player][0] + " enter your next move (1-9): ")
+    board[int(position)-1] = players[current_player][1]
 
 def replay():
     valid = ["yes","no"]
     again = False
-    choice = raw_input("Do you want to play again? (Yes / No): ")
+    choice = raw_input("Do you want to play again? (Yes / No): ").lower()
     while choice not in valid:
-        choice = raw_input("Invalid input. Enter 'yes' or 'no': ")
-    if choice.lower() == "yes":
+        choice = raw_input("Invalid input. Enter 'Yes' or 'No': ").lower()
+    if choice == "yes":
         again = True
     return again
 
