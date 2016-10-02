@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>0d1adddb-86bf-483c-96da-c04b2397b309</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>190_Exceptions_Errors_Assignment.py</StartupFile>
+    <StartupFile>200_Milestone_Project_2.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -76,6 +76,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="190_Exceptions_Errors_Assignment.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="200_Milestone_Project_2.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
