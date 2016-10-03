@@ -5,6 +5,11 @@
 
 import random
 import collections
+import os
+
+'''
+OBJECTS DEFINITION CODE
+'''
 
 class deck(object):
 
@@ -110,6 +115,24 @@ class croupier(object):
             player_object.money += player_object.bet
         elif player_object_hand == 21:
             player_object.money += player_object.bet *1.5
+    
+    def print_hand(self, half = False):
+
+        stars = "******************************************"
+
+        print (stars)
+        print ("*" + " " *(len(stars)-2) + "*")
+        strng = "* Croupier:"
+        print (strng + " " * (len(stars) - len(strng)-1) + "*")
+
+        if half == False:
+            strng = "*      - Hand:  " + str(self.hand)
+        else:    
+            strng = "*      - Half hand:  " + str(self.hand[0])
+
+        print (strng + " " * (len(stars) - len(strng)-1) + "*")
+        print ("*" + " " *(len(stars)-2) + "*")
+        print (stars + "\n")
         
 class player(object):
 
@@ -118,19 +141,104 @@ class player(object):
     hand = []   #List containing the player's hand of cards. It will be handled by the croupier object.
     bet = 50    #Default initial bet.
 
-    def __init__(self, money = 1000):
+    def __init__(self, name, money = 1000):
+        self.name = name
         self.money = money
         self.hand = []
         self.bet = 50
 
-Juan = player()
-the_croupier = croupier()
-the_croupier.deal_cards(Juan, 2)
-print Juan.hand
-print the_croupier.hand
-print "Juan " + str(the_croupier.hand_value(Juan))
-print "Croupier " + str(the_croupier.hand_value(the_croupier))
-print "Juan's bet was: " + str(Juan.bet)
-print "Juan's money was: " + str(Juan.money)
-the_croupier.payout(Juan)
-print "Juan's money is: " + str(Juan.money)
+    def print_info(self):
+        print (self.name + ":")
+        print ("       - Hand:  " + str(self.hand))
+        print ("       - Money: " + str(self.money))
+
+'''
+GAME EXECUTION CODE
+'''
+
+print "Welcome to the Super Black Jack Game".upper()
+print "------------------------------------"
+
+player_info_input = False
+
+while True:
+
+    '''
+    ASK FOR THE PLAYERS NAMES AND INITIAL MONEY
+    '''
+    if player_info_input == False:
+        #HIGHLIGHT - "try:" to check for integer values
+        #ALTERNATIVE - Split string in a list to check for certain value. See milestone project 1
+        while True:
+            try:
+                n_players = int(raw_input("please select the number of players (1 to 4): "))
+            except:
+                print "please, enter an integer value between 1 and 4!" + "\n"
+                continue
+            else:
+                if n_players in range(1,5):
+                    break
+                else:
+                    print "please, enter an integer value between 1 and 4!" + "\n"
+    
+        players = [] #list containing the player objects
+
+        for i in range(1, n_players+1):
+            name = raw_input("please enter player's " + str(i) +" name: ")
+            while True:
+                try:
+                    money = int(raw_input("please enter player's " + str(i) +" money: "))
+                except:
+                    print "please, enter an integer value! " + "\n"
+                    continue
+                else:
+                    break
+            new_player = player(name, money)
+            players.append(new_player)
+
+        player_info_input = True
+        the_croupier = croupier()
+            
+    '''
+    DEAL AND PRINT INITIAL CARDS
+    '''
+    #HIGHLIGHT - CLEAR TERMINAL (import os). Note in Linux: os.system("clear")
+    os.system("cls")
+    print ("Lets see those cards!: ")
+    print ("---------------------- " + "\n")
+        
+    the_croupier.print_hand(True)
+
+    for i in range(1, n_players+1):
+        the_croupier.deal_cards(players[i-1], 2) 
+        players[i-1].print_info()
+
+    raw_input("\n" + "Press ENTER to continue")
+
+    #TODO
+    '''
+    ASK FOR INPUT FROM EACH PLAYER
+    '''
+    for i in range(1, n_players+1):
+        os.system("cls")
+        the_croupier.print_hand(True)
+        pass
+
+    #TODO
+    '''
+    REPRINT BOARD WITH REVEALED CARDS
+    '''
+    os.system("cls")
+    the_croupier.print_hand(False)
+    for i in range(1, n_players+1):
+        pass
+
+    #TODO
+    '''
+    EVALUATE PAYOUTS AND UPDATE ACCOUNTS
+    '''
+    
+    #TODO
+    '''
+    ASK FOR CONTINUE OR QUIT
+    '''       

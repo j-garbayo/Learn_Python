@@ -116,6 +116,7 @@ def player_choice(board):
     #The order in the while statement below is important, because the first check filters already integer input.
     #If the second check of the "or" logic was put in first place, int() would cause the function to crash, because
     #a " " or "" character could be entered as argument for int. Check the commented line below.
+    #HIGHLIGHT - Split a string to check for raw_input values
     while position not in "1 2 3 4 5 6 7 8 9".split() or not space_check(board, int(position)-1):
     #while not space_check(board, int(position)-1) or position not in "1 2 3 4 5 6 7 8 9".split():
         position = raw_input(players[current_player][0] + " enter your next move (1-9): ")
