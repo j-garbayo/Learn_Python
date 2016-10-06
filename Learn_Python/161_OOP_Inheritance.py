@@ -37,7 +37,7 @@ x.display(); y.display()
 HIGHLIGHT - CLASS VS INSTANCE ATTRIBUTES WITH AN EXAMPLE (view foregoing example)
 The net result is that data lives in two places: in the instance objects (created by the
 self.data assignment in __init__), and in the class from which they inherit names
-(created by the data assignment in the class). The class’s display method prints both
+(created by the data assignment in the class). The classï¿½s display method prints both
 versions, by first qualifying the self instance, and then the class.
 '''
 
@@ -57,9 +57,9 @@ print x.message
 '''
 HIGHLIGHT - METHOD EXTENSION BY INHERITANCE
 Direct superclass method calls are the crux of the matter here. The Sub class replaces
-Super’s method function with its own specialized version, but within the replacement,
+Superï¿½s method function with its own specialized version, but within the replacement,
 Sub calls back to the version exported by Super to carry out the default behavior. In
-other words, Sub.method just extends Super.method’s behavior, rather than replacing it
+other words, Sub.method just extends Super.methodï¿½s behavior, rather than replacing it
 completely:
 '''
 
