@@ -35,64 +35,95 @@ class deck(object):
     def print_cards(self):
         print(self.cards)
 
-class croupier(object):
-    
-    game_deck = deck()
+class blackjack_person(object):
+
     hand = []
+    hand_value = 0
 
-    def __init__(self):
-        #Gives two cards to the croupier
-        self.hand = []
-        self.deal_cards(self,2)
-
-    def deal_cards(self, player_object, ncards = 1):
-        for i in range(1,ncards+1):
-            card = self.game_deck.get_card()
-            player_object.hand.append(card)
-                   
-    def hand_value(self, player_object):
+    def update_hand_value(self):
         #HIGHLIGHT - Function Doc Strings!
         '''
-        Calculates the value of the hand of the player.
+        Calculates the value of the hand of the player and stores it in the attribute hand_value
         '''
         #HIGHLIGHT use of collections.Counter (imported) to count elements within a list of tuples
-        #HIGHLOGHT use of sum
+        #HIGHLIGHT use of sum
         #Generates a dictionary with
             #Keys equal to the cards name or value
             #Values equal to the number of occurrences of the card
-        hand_count = collections.Counter(elem[0] for elem in player_object.hand)
+        hand_count = collections.Counter(elem[0] for elem in self.hand)
 
+        #Counts the nimber of aces.
         n_aces = hand_count["A"]
-        #print "aces: " + str(n_aces)
 
         #Counts the number of Js, Ks, Qs
         #HIGHLIGHT - Count the number of occurrences of an element in a list.
         n_specials = hand_count["K"] + hand_count["J"] + hand_count["Q"]
-        hand_value = n_specials*10
-        #print "specials: " + str(n_specials)
+        self.hand_value = n_specials*10
         
         #First, the value without aces is calculated:
-        for card in player_object.hand:
+        for card in self.hand:
             card_value = card[0]
             if type(card_value) == int:
-                hand_value += card_value
+                self.hand_value += card_value
 
         #Finally, if there are aces present, their value is calculated:
         if n_aces <> 0:
-            margin = 21 - hand_value
+            margin = 21 - self.hand_value
             if margin < 11:
-                hand_value += n_aces
+                self.hand_value += n_aces
             elif margin == 11 and n_aces == 1:
-                hand_value += 11
+                self.hand_value += 11
             elif margin == 11 and n_aces > 1:
-                hand_value += n_aces
+                self.hand_value += n_aces
             elif margin > 11 and margin - 11 - (n_aces-1) >= 0:
-                hand_value += 11 + (n_aces-1)
+                self.hand_value += 11 + (n_aces-1)
             else:
-                hand_value += n_aces
+                self.hand_value += n_aces
 
-        return hand_value
-        
+class croupier(blackjack_person):
+    
+    game_deck = deck()
+    show_full_hand = False    #When print(croupier) shall show all the cards in the
+                              #croupier's hand, change to true.
+                              #TODO: investigate how the type of this attribute can be restricted
+                              #      to make it only boolean type.
+
+    def __init__(self):
+
+        #Gives two cards to the croupier and updates its hand value
+        self.deal_cards(self,2)
+
+    def __str__(self):
+
+        stars = "******************************************"
+        printout = stars
+        printout += "\n" + "*" + " " *(len(stars)-2) + "*"
+
+        strng = "* Croupier:"
+        printout += "\n" + strng + " " * (len(stars) - len(strng)-1) + "*"
+
+        if self.show_full_hand == False:        
+            strng = "*      - Half hand:  " + str(self.hand[0])
+        else:
+            strng = "*      - Hand:  " + str(self.hand)         
+
+        printout += "\n" + strng + " " * (len(stars) - len(strng)-1) + "*"
+        printout += "\n" + "*" + " " *(len(stars)-2) + "*"
+        printout += "\n" + stars
+        printout += "\n"
+
+        return printout
+
+    def deal_cards(self, blckjck_person, ncards = 1):
+
+        #deals ncards to the passed blckjck_person and updates its hand_value
+
+        for i in range(1,ncards+1):
+            card = self.game_deck.get_card()
+            blckjck_person.hand.append(card)
+
+        blckjck_person.update_hand_value()                         
+
     def payout(self, player_object):
         #HIGHLIGHT: Type-hinting in PTVS. This is PTVS specific! (Visual Studio)
         #Python 3 supports directly type hinting
@@ -102,143 +133,150 @@ class croupier(object):
 
         #HIGHLIGHT: Type-hinting alternative in PTVS. This code wont execute but helps
         #visual studio figure out what is going on
-
         if False:
             player_object = player()
 
-        croupier_hand = self.hand_value(self)
-        player_object_hand = self.hand_value(player_object)
-
-        if player_object_hand < croupier_hand or player_object_hand > 21:
-            player_object.money -= player_object.bet
-        elif player_object_hand > croupier_hand and player_object_hand < 21:
-            player_object.money += player_object.bet
-        elif player_object_hand == 21:
-            player_object.money += player_object.bet *1.5
-    
-    def print_hand(self, half = False):
-
-        stars = "******************************************"
-
-        print (stars)
-        print ("*" + " " *(len(stars)-2) + "*")
-        strng = "* Croupier:"
-        print (strng + " " * (len(stars) - len(strng)-1) + "*")
-
-        if half == False:
-            strng = "*      - Hand:  " + str(self.hand)
-        else:    
-            strng = "*      - Half hand:  " + str(self.hand[0])
-
-        print (strng + " " * (len(stars) - len(strng)-1) + "*")
-        print ("*" + " " *(len(stars)-2) + "*")
-        print (stars + "\n")
+        self.update_hand_value()
+        player_object.update_hand_value()
         
-class player(object):
+        if player_object.hand_value < self.hand_value or player_object.hand_value > 21:
+            payout = -player_object.bet
+        elif player_object.hand_value > self.hand_value and player_object.hand_value < 21:
+            payout = player_object.bet
+        elif player_object.hand_value == 21:
+            payout = player_object.bet*1.5
+
+class player(blackjack_person):
 
     #TODO: Create a Method to Split Hand.
-
-    hand = []   #List containing the player's hand of cards. It will be handled by the croupier object.
-    bet = 50    #Default initial bet.
 
     def __init__(self, name, money = 1000):
         self.name = name
         self.money = money
-        self.hand = []
         self.bet = 50
 
-    def print_info(self):
-        print (self.name + ":")
-        print ("       - Hand:  " + str(self.hand))
-        print ("       - Money: " + str(self.money))
-
-'''
-GAME EXECUTION CODE
-'''
-
-print "Welcome to the Super Black Jack Game".upper()
-print "------------------------------------"
-
-player_info_input = False
-
-while True:
-
-    '''
-    ASK FOR THE PLAYERS NAMES AND INITIAL MONEY
-    '''
-    if player_info_input == False:
-        #HIGHLIGHT - "try:" to check for integer values
-        #ALTERNATIVE - Split string in a list to check for certain value. See milestone project 1
-        while True:
-            try:
-                n_players = int(raw_input("please select the number of players (1 to 4): "))
-            except:
-                print "please, enter an integer value between 1 and 4!" + "\n"
-                continue
-            else:
-                if n_players in range(1,5):
-                    break
-                else:
-                    print "please, enter an integer value between 1 and 4!" + "\n"
-    
-        players = [] #list containing the player objects
-
-        for i in range(1, n_players+1):
-            name = raw_input("please enter player's " + str(i) +" name: ")
-            while True:
-                try:
-                    money = int(raw_input("please enter player's " + str(i) +" money: "))
-                except:
-                    print "please, enter an integer value! " + "\n"
-                    continue
-                else:
-                    break
-            new_player = player(name, money)
-            players.append(new_player)
-
-        player_info_input = True
-        the_croupier = croupier()
-            
-    '''
-    DEAL AND PRINT INITIAL CARDS
-    '''
-    #HIGHLIGHT - CLEAR TERMINAL (import os). Note in Linux: os.system("clear")
-    os.system("cls")
-    print ("Lets see those cards!: ")
-    print ("---------------------- " + "\n")
+    def __str__(self):
         
-    the_croupier.print_hand(True)
+        printout = self.name + ":"
+        printout += "\n" + "       - Hand:  " + str(self.hand)
+        printout += "\n" + "       - Money: " + str(self.money)
+        printout += "\n" + "       - Bet:   " + str(self.bet)
+        printout += "\n"
 
-    for i in range(1, n_players+1):
-        the_croupier.deal_cards(players[i-1], 2) 
-        players[i-1].print_info()
+        return printout
 
-    raw_input("\n" + "Press ENTER to continue")
 
-    #TODO
-    '''
-    ASK FOR INPUT FROM EACH PLAYER
-    '''
-    for i in range(1, n_players+1):
-        os.system("cls")
-        the_croupier.print_hand(True)
-        pass
+#'''
+#GAME EXECUTION CODE
+#'''
 
-    #TODO
-    '''
-    REPRINT BOARD WITH REVEALED CARDS
-    '''
-    os.system("cls")
-    the_croupier.print_hand(False)
-    for i in range(1, n_players+1):
-        pass
+#print "Welcome to the Super Black Jack Game".upper()
+#print "------------------------------------"
 
-    #TODO
-    '''
-    EVALUATE PAYOUTS AND UPDATE ACCOUNTS
-    '''
+#player_info_input = False
+##CREATE'S CROUPIER OBJECT
+#the_croupier = croupier()
+
+#while True:
+
+#    '''
+#    ASK FOR THE PLAYERS NAMES AND INITIAL MONEY
+#    '''
+#    if player_info_input == False:
+#        #HIGHLIGHT - "try:" to check for integer values
+#        #ALTERNATIVE - Split string in a list to check for certain value. See milestone project 1
+#        while True:
+#            try:
+#                n_players = int(raw_input("please select the number of players (1 to 4): "))
+#            except:
+#                continue
+#            else:
+#                if n_players in range(1,5):
+#                    break
     
-    #TODO
-    '''
-    ASK FOR CONTINUE OR QUIT
-    '''       
+#        players = [] #list containing the player objects
+
+#        for i in range(1, n_players+1):
+#            os.system("cls") 
+#            name = raw_input("please enter player's " + str(i) +" name: ")
+#            while True:
+#                try:
+#                    money = int(raw_input("please enter " + name +"'s money (integer value): "))
+#                except:
+#                    continue
+#                else:
+#                    break
+
+#            new_player = player(name, money)
+#            players.append(new_player)     
+
+#        player_info_input = True
+
+#        #GETS THE PLAYER'S BETS:
+#        for i in range(1, n_players+1):
+#            os.system("cls")
+#            while True:
+#                try:
+#                    bet = int(raw_input("please enter " + players[i-1].name + "'s bet (integer value): "))
+#                except:
+#                    continue
+#                else:
+#                    players[i-1].bet = bet
+#                    break  
+
+#    '''
+#    DEAL AND PRINT INITIAL CARDS
+#    '''
+#    #HIGHLIGHT - CLEAR TERMINAL (import os). Note in Linux: os.system("clear")
+#    os.system("cls")
+#    print ("Lets see those cards!: ")
+#    print ("---------------------- " + "\n")
+        
+#    the_croupier.print_info(True)
+
+#    for i in range(1, n_players+1):
+#        the_croupier.deal_cards(players[i-1], 2) 
+#        players[i-1].print_info()
+
+#    raw_input("\n" + "Press ENTER to continue")
+
+#    #TODO
+#    '''
+#    ASK FOR ACTOPM INPUT FROM EACH PLAYER
+#    '''
+#    for i in range(1, n_players+1):
+#        os.system("cls")
+#        the_croupier.print_info(True)
+#        players[i-1].print_info()
+
+#        while True:
+#            action = raw_input(players[i-1].name + ", hit or pass?")
+#            action = action.lower()
+#            if action == "hit":
+#                the_croupier.deal_cards(players[i-1], 1)
+                
+#                pass
+#            elif action == "pass":
+#                pass
+                
+
+
+#    #TODO
+#    '''
+#    REPRINT BOARD WITH REVEALED CARDS
+#    '''
+#    os.system("cls")
+#    the_croupier.print_info(False)
+#    for i in range(1, n_players+1):
+        
+#        pass
+
+#    #TODO
+#    '''
+#    EVALUATE PAYOUTS AND UPDATE ACCOUNTS
+#    '''
+    
+#    #TODO
+#    '''
+#    ASK FOR CONTINUE OR QUIT
+#    '''       
