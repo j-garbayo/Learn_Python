@@ -69,6 +69,9 @@
     <Compile Include="160_OOP.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="161_OOP_Inheritance.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="170_OOP_Assignment.py">
       <SubType>Code</SubType>
     </Compile>
