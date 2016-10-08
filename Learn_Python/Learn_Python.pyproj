@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>0d1adddb-86bf-483c-96da-c04b2397b309</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>200_Milestone_Project_2.py</StartupFile>
+    <StartupFile>162_OOP_Chapter28_Basics_Example.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -26,20 +26,32 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="000_test.py">
+    <Compile Include="ZZ.-test.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="001_Chained_Assignments.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="040_Tuples.py" />
-    <Compile Include="050_Files.py">
+    <Compile Include="010_Numbers.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="060_Sets_Booleans.py">
+    <Compile Include="040_Dictionaries.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="061_Asessment.py">
+    <Compile Include="080_Comparison_Operators.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="163_OOP_Composites_Delegation.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="050_Tuples.py" />
+    <Compile Include="060_Files.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="070_Sets_Booleans.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="071_Asessment.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="090_Python_Statements.py">
@@ -72,6 +84,9 @@
     <Compile Include="161_OOP_Inheritance.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="162_OOP_Chapter28_Basics_Example.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="170_OOP_Assignment.py">
       <SubType>Code</SubType>
     </Compile>
@@ -82,6 +97,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="200_Milestone_Project_2.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="020_Strings.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="030_Lists.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZZ. Operator Overloading used methods.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

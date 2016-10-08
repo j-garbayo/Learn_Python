@@ -2,6 +2,7 @@
 
 #TODO Add Double-Downs.
 #TODO Add Card Splits.
+#TODO Use a similar composite as "Department" in 162 to embed all the players in a single object instead of a list!.
 
 import random
 import collections
