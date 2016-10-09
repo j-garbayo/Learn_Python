@@ -62,10 +62,41 @@ class Manager:
 
     #HIGHLIGHT - __getattr__ used for object method delegation
     def __getattr__(self, attr):
+        y = getattr(self.person, attr)
+        print('y = ', y)
         return getattr(self.person, attr) # Delegate all other attrs
         '''
+        HIGHLIGHT
         what this does is allowing the user to use the methods in the embedded person object
         with the syntax manager.method instead of manager.person.method.
+        '''
+        '''
+        __getattr__ explanation (from pytho documentation)
+        CLASS INSTANCES
+        A class instance is created by calling a class object (see above). 
+        A class instance has a namespace implemented as a dictionary which is 
+        the first place in which attribute references are searched. When an attribute 
+        is not found there, and the instance’s class has an attribute by that name, the 
+        search continues with the class attributes. If a class attribute is found that is 
+        a user-defined function object or an unbound user-defined method object whose associated 
+        class is the class (call it C) of the instance for which the attribute reference was 
+        initiated or one of its bases, it is transformed into a bound user-defined method object 
+        whose im_class attribute is C and whose im_self attribute is the instance. Static method 
+        and class method objects are also transformed, as if they had been retrieved from class C; 
+        see above under “Classes”. See section Implementing Descriptors for another way in which 
+        attributes of a class retrieved via its instances may differ from the objects actually stored 
+        in the class’s __dict__. 
+
+        ***
+        If no class attribute is found, and the object’s class has a __getattr__() method, that is 
+        called to satisfy the lookup.
+        ***
+
+        Attribute assignments and deletions update the instance’s dictionary, never a class’s dictionary. 
+        If the class has a __setattr__() or __delattr__() method, this is called instead of updating the 
+        instance dictionary directly.
+
+        Special attributes: __dict__ is the attribute dictionary; __class__ is the instance’s class.
         '''
 
     def __repr__(self):
@@ -74,6 +105,7 @@ class Manager:
 if __name__ == '__main__':
     bob = Person('Bob Smith')
     sue = Person('Sue Jones', job='dev', pay=100000)
+
     print(bob)
     print(sue)
     print(bob.lastName(), sue.lastName())

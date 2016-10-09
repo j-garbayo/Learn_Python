@@ -24,6 +24,14 @@ class Manager(Person):
         Person.giveRaise(self, percent + bonus)
 
 if __name__ == '__main__':
+
+    '''
+    When we run this code now, we see all the attributes of our objects, not just the ones
+    we hardcoded in the original __repr__. And our final issue is resolved: because AttrDis
+    play takes class names off the self instance directly, each object is shown with the name
+    of its closest (lowest) class
+    '''
+
     bob = Person('Bob Smith')
     sue = Person('Sue Jones', job='dev', pay=100000)
     print(bob)
