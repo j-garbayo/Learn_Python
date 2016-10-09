@@ -18,5 +18,3 @@ for value in d.itervalues():
 #Iteration over keys and values
 for k, v in d.iteritems():
     print k, v
-
-#I AM TESTING SOMETHING HERE

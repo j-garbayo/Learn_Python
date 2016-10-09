@@ -1,3 +1,5 @@
+#coding: utf-8
+
 '''
 HIGHLIGHT
 - composites - nesting objects inside each other to build up composites (chapter 31)

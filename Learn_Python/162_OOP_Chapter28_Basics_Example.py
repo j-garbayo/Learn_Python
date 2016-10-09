@@ -1,18 +1,21 @@
 # File person.py (start)
 
+
+'''
+'''
+
 '''
 HIGHLIGHT
 Inheritance and composition
-Interestingly, this code uses both inheritance and composition—Department is a com-
+Interestingly, this code uses both inheritance and composition Department is a com-
 posite that embeds and controls other objects to aggregate, but the embedded Person
-and Manager objects themselves use inheritance to customize. 
-
+and Manager objects themselves use inheritance to customize.
 As another example, a
 GUI might similarly use inheritance to customize the behavior or appearance of labels
 and buttons, but also composition to build up larger packages of embedded widgets,
 such as input forms, calculators, and text editors. The class structure to use depends
-on the objects you are trying to model—in fact, the ability to model real-world entities
-this way is one of OOP’s strengths.
+on the objects you are trying to model. In fact, the ability to model real-world entities
+this way is one of OOPs strengths.
 '''
 
 '''
@@ -82,11 +85,11 @@ class Department:
             print(person)    
 
 '''
-Although we could split the test code off into a separate file, it�s often more convenient
+Although we could split the test code off into a separate file, it's often more convenient
 to code tests in the same file as the items to be tested. It would be better to arrange to
 run the test statements at the bottom only when the file is run for testing, not when the
-file is imported. That�s exactly what the module __name__ check is designed for, as you
-learned in the preceding part of this book. Here�s what this addition looks like�add
+file is imported. That's exactly what the module __name__ check is designed for, as you
+learned in the preceding part of this book. Here's what this addition looks like: add
 the require test and indent your self-test code:
 '''
 
@@ -102,7 +105,7 @@ Aggregatuin if akk ibhects un irder to treat them as a set using object delegati
 
 - Varargs unpacking: pass arbitrarily many positional or keyword arguments
     Callers can also use the * syntax to unpack argument collections into separate
-    arguments. This is the inverse of a * in a function header—in the header it means
+    arguments. This is the inverse of a * in a function header in the header it means
     collect arbitrarily many arguments, while in the call it means unpack arbitrarily
     many arguments, and pass them individually as discrete values.
 '''
@@ -113,29 +116,29 @@ HIGHLIGHT - Varargs * and **
 
 #HIGHLIGHT - Very Important Using main to indicate that the module shall only be run as a script
 
-#if __name__ == '__main__':
-#    bob = Person('Bob Smith')
-#    sue = Person('Sue Jones', job='dev', pay=100000)
-#    print(bob)
-#    print(sue)
-#    print(bob.lastName(), sue.lastName())
-#    sue.giveRaise(.10)
-#    print(sue)
-#    tom = Manager('Tom Jones', 50000) # Make a Manager: __init__
-#    tom.giveRaise(.10) # Runs custom version
-#    print(tom.lastName()) # Runs inherited method
-#    print(tom) # Runs inherited __repr__
-#    print('--All three--')
-#    bob.giveRaise(0.2)
+if __name__ == '__main__':
+   bob = Person('Bob Smith')
+   sue = Person('Sue Jones', job='dev', pay=100000)
+   print(bob)
+   print(sue)
+   print(bob.lastName(), sue.lastName())
+   sue.giveRaise(.10)
+   print(sue)
+   tom = Manager('Tom Jones', 50000) # Make a Manager: __init__
+   tom.giveRaise(.10) # Runs custom version
+   print(tom.lastName()) # Runs inherited method
+   print(tom) # Runs inherited __repr__
+   print('--All three--')
+   bob.giveRaise(0.2)
 
-#    #HIGHLIGHT - Python's polimorphsim with objects and inheritance
-#    for obj in (bob, sue, tom): # process objects generically
-#        obj.giveRaise(.10) # run this object's giveraise
-#        print(obj) # run the common __repr__
+   #HIGHLIGHT - Python's polimorphsim with objects and inheritance
+   for obj in (bob, sue, tom): # process objects generically
+       obj.giveRaise(.10) # run this object's giveraise
+       print(obj) # run the common __repr__
 
 '''
 HIGHLIGHT - __str__ vs __repr__
-as we�ll learn in Chapter 30, the __repr__ method is often used to provide
+as well learn in Chapter 30, the __repr__ method is often used to provide
 an as-code low-level display of an object when present, and __str__ is reserved for
 user-friendly informational displays like ours here. Sometimes classes provide both
 __str__ for user-friendly displays and a __repr__ with extra details for developers
@@ -144,7 +147,7 @@ __repr__, this can provide both target audiences with an appropriate display.
 '''
 
 '''
-Technically, bob and sue are both namespace objects�like all
+Technically, bob and sue are both namespace objects like all
 class instances, they each have their own independent copy of the state information
 created by the class. Because each instance of a class has its own set of self attributes,
 classes are a natural for recording information for multiple objects this way; just like
@@ -154,17 +157,17 @@ built-in types such as lists and dictionaries, classes serve as a sort of object
 '''
 HIGHLIGHT - BASICS OF OOP
 In this complete form, and despite their relatively small sizes, our classes capture nearly
-all the important concepts in Python’s OOP machinery:
-• Instance creation—filling out instance attributes
-• Behavior methods—encapsulating logic in a class’s methods
-• Operator overloading—providing behavior for built-in operations like printing
-• Customizing behavior—redefining methods in subclasses to specialize them
-• Customizing constructors—adding initialization logic to superclass steps
+all the important aspects of Python OOP:
+- Instance creation filling out instance attributes
+- Behavior methods encapsulating logic in a class methods
+- Operator overloading providing behavior for built-in operations like printing
+- Customizing behavior redefining methods in subclasses to specialize them
+- Customizing constructors adding initialization logic to superclass steps
 
 based upon just three simple ideas: 
-• the inheritance search for attributes in object trees
-• the special self argument in methods
-• operator overloading’s automatic dispatch to methods.
+- the inheritance search for attributes in object trees
+- the special self argument in methods
+- operator overloadings automatic dispatch to methods.
 
 advanced class concepts (later chapters), such as 
 - decorators.
@@ -178,10 +181,10 @@ if __name__ == "__main__":
         sue = Person('Sue Jones', job = 'dev', pay = 100000)
         tom = Manager('Tom Jones', 50000)
 
-        #development = Department(bob, sue)   #Embed objects in a composite
-        #development.addMember(tom)           
-        #development.giveRaises(0.10)        # Runs embedded objects' giveRaise
-        #development.showAll()               # Runs embedded objects' __repr__
+        # development = Department(bob, sue)   #Embed objects in a composite
+        # development.addMember(tom)
+        # development.giveRaises(0.10)        # Runs embedded objects' giveRaise
+        # development.showAll()               # Runs embedded objects' __repr__
 
         bobdict = bob.__dict__
 
