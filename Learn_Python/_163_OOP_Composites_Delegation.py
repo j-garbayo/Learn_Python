@@ -60,7 +60,7 @@ class Manager:
     def giveRaise(self, percent, bonus=.10):
         self.person.giveRaise(percent + bonus) # Intercept and delegate
 
-    #HIGHLIGHT - Get Attribute - use for object method delegation
+    #HIGHLIGHT - __getattr__ used for object method delegation
     def __getattr__(self, attr):
         return getattr(self.person, attr) # Delegate all other attrs
         '''

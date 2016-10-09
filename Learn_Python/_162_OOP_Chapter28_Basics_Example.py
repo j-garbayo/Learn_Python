@@ -1,9 +1,5 @@
 # File person.py (start)
 
-
-'''
-'''
-
 '''
 HIGHLIGHT
 Inheritance and composition
@@ -29,6 +25,9 @@ HIGHLIGHT -     __bases__ - gives the classes' superclasses
 HIGHLIGHT - object.__dict__ 
                 provides a dictionary with one key/value pair for every attribute attached
                 to a namespace object (including modules, clases and instances)
+
+                IT ONLY CONTAINS INSTANCE ATTRIBTES, NOT CLASS ATRIBUTES!
+                IERITED CLASSATTITES AREATTCHH DTO TECLASS OL
         
                 Because it is a dictionary, we can fetch its keys list, index by key,
                 iterate over its keys, and so on, to process al attributes generically.
@@ -144,6 +143,10 @@ user-friendly informational displays like ours here. Sometimes classes provide b
 __str__ for user-friendly displays and a __repr__ with extra details for developers
 view. Because printing runs __str__ and the interactive prompt echoes results
 __repr__, this can provide both target audiences with an appropriate display.
+
+my summary (review):
+__repr__ is what is in interactive prompts and nested appearance
+__str__ is what is printed by print
 '''
 
 '''
@@ -172,7 +175,7 @@ based upon just three simple ideas:
 advanced class concepts (later chapters), such as 
 - decorators.
 - metaclasses.
-- ccomposites - nesting objects inside each other to build up composites (chapter 31)
+- ccomposites - nesting objects inside each other to build up composites (chapter 31) and see _163
 '''
 
 if __name__ == "__main__":
