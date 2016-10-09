@@ -14,7 +14,7 @@ embedded objects require more limited interaction with the container than direct
 tomization implies.
     A controller layer, or proxy, like this alternative Manager, for ex-
     ample, might come in handy if we want to adapt a class to an expected interface it does
-    not support, or trace or validate calls to another object’s methods (indeed, we will use
+    not support, or trace or validate calls to another objectï¿½s methods (indeed, we will use
     a nearly identical coding pattern when we study class decorators later in the book)
 '''
 
@@ -23,7 +23,7 @@ HIGHLIGHT
 __getattr__
 Python also exports the list of all loaded
 modules as the sys.modules dictionary and provides a built-in called getattr that lets
-us fetch attributes from their string names—it’s like saying object.attr, but attr is an
+us fetch attributes from their string namesï¿½itï¿½s like saying object.attr, but attr is an
 expression that yields a string at runtime. Because of that, all the following expressions
 reach the same attribute and object:
 

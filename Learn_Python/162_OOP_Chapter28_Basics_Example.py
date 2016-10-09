@@ -185,8 +185,7 @@ if __name__ == "__main__":
 
         bobdict = bob.__dict__
 
-        for (k,v) in bobdict:
-            print k
-            print v
-
+        for k in bobdict:
+            print k + "->" + str(getattr(bob, k))
+            
         print bobdict
