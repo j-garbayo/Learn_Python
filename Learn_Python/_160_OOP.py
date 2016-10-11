@@ -29,6 +29,14 @@ There is a special method called:
 This method is used to initialize the attributes of an object. For example:
 '''
 
+'''
+HIGHLIGHT - NEW STYLE CLASSES
+Any class derived from object, or any other built-in type, is automatically treated as a
+new-style class. That is, as long as a built-in type is somewhere in its superclass tree, a
+2.X class acquires new-style class behavior and extensions. Classes not derived from
+built-ins such as object are considered classic.
+'''
+
 class Dog(object):
     def __init__(self,breed):
         #Each attribute in a class definition begins with a reference to the instance object. 

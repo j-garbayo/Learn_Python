@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>0d1adddb-86bf-483c-96da-c04b2397b309</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>_163_OOP_Composites_Delegation.py</StartupFile>
+    <StartupFile>_210_Modules_dir.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -26,10 +26,37 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="_167_OOP_Private_Pseudoprivative_attributes.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_210_Modules_Compile.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_210_Modules_dir.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_210_Modules_fibo.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="_164_OOP_classtools.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="_165_OOP_person.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_166_2_OOP_Persistance_Update.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_166_Object_Persistance.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_210_Modules_Import.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_210_Modules_Path.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_210_Modules_sys.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="_ZZ.-test.py">
