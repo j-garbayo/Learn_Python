@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>0d1adddb-86bf-483c-96da-c04b2397b309</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>_210_Modules_dir.py</StartupFile>
+    <StartupFile>_220_Built_in_Funt_MAP.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -26,6 +26,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="_210_youtube_dl.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="_167_OOP_Private_Pseudoprivative_attributes.py">
       <SubType>Code</SubType>
     </Compile>
@@ -57,6 +60,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="_210_Modules_sys.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_220_Built_in_Funt_MAP.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="_ZZ.-test.py">

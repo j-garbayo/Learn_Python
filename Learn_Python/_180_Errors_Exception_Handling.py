@@ -67,3 +67,35 @@ def askint():
     print val 
 
 askint()
+
+#HIGHTLIGHT - Raising Exceptions
+'''
+Exceptions can be raised with arguments that give detail about them.
+For example:
+'''
+
+name = "123"
+raise NameError("Invalid name!")
+
+'''
+In except blocks, the raise statement can be used without arguments to re-raise whatever exception occurred.
+'''
+try:
+   num = 5 / 0
+except:
+   print("An error occurred")
+   raise
+
+#HIGHLIGHT - Assertions
+
+'''
+An assertion is a sanity-check that you can turn on or turn off when you have finished testing the program.
+An expression is tested, and if the result comes up false, an exception is raised.
+Assertions are carried out through use of the assert statement.
+
+Programmers often place assertions at the start of a function to check for valid input, 
+and after a function call to check for valid output.
+'''
+
+temp = -10
+assert (temp >= 0), "Colder than absolute zero!"

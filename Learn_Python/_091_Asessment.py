@@ -37,3 +37,5 @@ st = '''| X | O | X |
 -------------   
 |   | O |   |'''
 print(st)
+
+x = raw_input("wait")
