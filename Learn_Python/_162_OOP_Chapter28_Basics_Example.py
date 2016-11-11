@@ -114,6 +114,7 @@ HIGHLIGHT - Varargs * and **
 '''
 
 #HIGHLIGHT - Very Important Using main to indicate that the module shall only be run as a script
+#            The code is only executed when the scripy is run, not when it is imported.
 
 if __name__ == '__main__':
    bob = Person('Bob Smith')

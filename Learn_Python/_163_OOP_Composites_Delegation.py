@@ -103,6 +103,7 @@ class Manager:
         return str(self.person) # Must overload again (in 3.X)
 
 if __name__ == '__main__':
+
     bob = Person('Bob Smith')
     sue = Person('Sue Jones', job='dev', pay=100000)
 

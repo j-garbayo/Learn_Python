@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>0d1adddb-86bf-483c-96da-c04b2397b309</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>_220_Built_in_Funt_MAP.py</StartupFile>
+    <StartupFile>_290_Advanced_Funcitons_Assessment.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -26,6 +26,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="_230_Built_in_Func_REDUCE.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="_210_youtube_dl.py">
       <SubType>Code</SubType>
     </Compile>
@@ -62,7 +65,25 @@
     <Compile Include="_210_Modules_sys.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_220_Built_in_Funt_MAP.py">
+    <Compile Include="_220_Built_in_Func_MAP.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_240_Built_In_Func_FILTER.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_250_Built-in_ZIP.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_260_Bult-in_Func_ENUMERATE.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_270_Built-in_Funct_All_Any.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_280_Built-in_Funct_Complex.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_290_Advanced_Funcitons_Assessment.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="_ZZ.-test.py">
