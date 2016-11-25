@@ -19,7 +19,7 @@ def zip(*iterables):
             result.append(elem)
         yield tuple(result)
 
-zip() should only be used with unequal length inputs when you don’t care about trailing, unmatched values from the longer iterables.
+zip() should only be used with unequal length inputs when you donï¿½t care about trailing, unmatched values from the longer iterables.
 '''
 
 #See the one note notebook for futher details.

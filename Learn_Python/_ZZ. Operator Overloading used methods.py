@@ -14,5 +14,13 @@ View 162
 
 '''
 
+'''
+
+- __Call__
+
+    the __call__ method is called when your instance is called.
+
+'''
+
 
 

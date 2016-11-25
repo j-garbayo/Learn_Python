@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>0d1adddb-86bf-483c-96da-c04b2397b309</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>_290_Advanced_Funcitons_Assessment.py</StartupFile>
+    <StartupFile>_320_Collections_Modulel.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -26,6 +26,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="_168_OOP_More_Operator_Overloading.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="_230_Built_in_Func_REDUCE.py">
       <SubType>Code</SubType>
     </Compile>
@@ -84,6 +87,24 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="_290_Advanced_Funcitons_Assessment.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_300_Decorators_INTRO.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_310_Iterators_Generators.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_311_Iterators_Generators_Assignment.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_312_Generator_Expressions.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_313_Itertools_Module.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_320_Collections_Modulel.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="_ZZ.-test.py">
@@ -166,6 +187,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="_ZZ. Operator Overloading used methods.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_ZZ_Varargs_pargs_kwargs.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
