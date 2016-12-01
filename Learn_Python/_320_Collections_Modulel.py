@@ -67,3 +67,102 @@ print(d['one'])     #This does not raise a KeyError, because we are working with
 d = defaultdict(lambda: 0)      #This does not raise a KeyError, because we are working wit a defaultdict.
 print(d['one'])
 
+#ORDERED DICTIONARY
+
+#An OrderedDict is a dictionary subclass that remembers the order in which it contents are added.
+
+#Example of a normal dictionary
+
+from collections import OrderedDict
+
+print 'Normal dictionary:'
+
+d = {}
+
+d['a'] = 'A'
+d['b'] = 'B'
+d['c'] = 'C'
+d['d'] = 'D'
+d['e'] = 'E'
+
+for k,v in d.items():
+    print k, v
+
+print 'OrderedDict:'
+
+d = OrderedDict()
+
+d['a'] = 'A'
+d['b'] = 'B'
+d['c'] = 'C'
+d['d'] = 'D'
+d['e'] = 'E'
+
+for k, v in d.items():
+    print k, v
+
+#Equality with an Ordered Dictionary:
+#It does not only test the items of the dictionary, but also the order in which they were added.
+
+print 'Dictionaries (normal) are equal?'
+
+d1 = {}
+d1['a'] = 'A'
+d1['b'] = 'B'
+
+d2 = {}
+d2['b'] = 'B'
+d2['a'] = 'A'
+
+print d1 == d2
+
+print 'Dictionaries (ordered) are equal?'
+
+d1 = OrderedDict()
+d1['a'] = 'A'
+d1['b'] = 'B'
+
+
+d2 = OrderedDict()
+
+d2['b'] = 'B'
+d2['a'] = 'A'
+
+print d1 == d2
+
+#NAMED TUPLE
+
+#The standafrd tuple uses numerical indexes to access its members, for example:
+
+t = (12,13,14)
+
+print (t[0])
+
+#For simple use cases, this is usually enough. On the other hand, remembering which index should be used for each value can lead to errors, 
+#especially if the tuple has a lot of fields and is constructed far from where it is used. A namedtuple assigns names, as well as the numerical 
+#index, to each member.
+
+#Each kind of namedtuple is represented by its own class, created by using the namedtuple() factory function. The arguments are the name of the 
+#new class and a string containing the names of the elements.
+#You can basically think of namedtuples as a very quick way of creating a new object/class type with some attribute fields. For example:
+
+from collections import namedtuple
+
+Dog = namedtuple('Dog', 'age breed name')
+sam = Dog(age=2, breed='Lab',name='Sammy')
+frank = Dog(age=2, breed='Shepard',name='Frankie')
+
+print "namedtuple('Dog', 'age breed name')"
+
+print 'sam'
+print sam
+
+print 'sam.age'
+print sam.age
+
+print 'sam.breed'
+print sam.breed
+
+print 'sam[0]'
+print sam[0]
+

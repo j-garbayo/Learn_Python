@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>0d1adddb-86bf-483c-96da-c04b2397b309</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>_320_Collections_Modulel.py</StartupFile>
+    <StartupFile>_360_Regular_Expressions.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -105,6 +105,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="_320_Collections_Modulel.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_330_Date_Time.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_340_Python_Debugger.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_350_timeit.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_360_Regular_Expressions.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="_ZZ.-test.py">
